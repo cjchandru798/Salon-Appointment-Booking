@@ -16,8 +16,8 @@ public class PublicServiceController {
     private SalonServiceImp salonServiceImp;
 
     @GetMapping("/all")
-    public List<Services> getAllServices() {
-        return salonServiceImp.getAllServices();
+    public ResponseEntity<List<Services>> getAllServices() {
+        return ResponseEntity.ok(salonServiceImp.getAllServices());
     }
 
     @GetMapping("/{id}")
@@ -28,7 +28,7 @@ public class PublicServiceController {
     }
 
     @GetMapping("/category/{category}")
-    public List<Services> getServicesByCategory(@PathVariable String category) {
-        return salonServiceImp.getServicesByCategory(category);
+    public ResponseEntity<List<Services>> getServicesByCategory(@PathVariable String category) {
+        return ResponseEntity.ok(salonServiceImp.getServicesByCategory(category));
     }
 }

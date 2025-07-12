@@ -16,8 +16,9 @@ public class AdminServiceController {
 
     @PostMapping("/create")
     @PreAuthorize("hasRole('ADMIN')")
-    public Services createService(@RequestBody Services services) {
-        return salonServiceImp.createService(services);
+    public ResponseEntity<Services> createService(@RequestBody Services services) {
+        Services created = salonServiceImp.createService(services);
+        return ResponseEntity.ok(created);
     }
 
     @PutMapping("/update/{serviceId}")
@@ -25,12 +26,13 @@ public class AdminServiceController {
     public ResponseEntity<Services> updateService(
             @PathVariable Long serviceId,
             @RequestBody Services services) {
-        return ResponseEntity.ok(salonServiceImp.updateService(serviceId, services));
+        Services updated = salonServiceImp.updateService(serviceId, services);
+        return ResponseEntity.ok(updated);
     }
 
     @DeleteMapping("/delete/{serviceId}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<?> deleteService(@PathVariable Long serviceId) {
+    public ResponseEntity<Void> deleteService(@PathVariable Long serviceId) {
         salonServiceImp.deleteService(serviceId);
         return ResponseEntity.ok().build();
     }
