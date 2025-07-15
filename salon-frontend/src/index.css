@@ -1,0 +1,7 @@
+/* If you decide to re‑enable Tailwind later, leave the three directives.
+   For now they do nothing harmful. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── No custom @apply utilities below ── */

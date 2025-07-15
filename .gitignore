@@ -1,0 +1,25 @@
+# Global ignores
+
+# IDEs
+.idea/
+.vscode/
+
+# Node
+node_modules/
+dist/
+*.log
+
+# Java
+target/
+build/
+*.class
+
+# OS and editor
+.DS_Store
+*.swp
+
+# Ignore nested node_modules
+**/node_modules/
+
+# Ignore backend target directory
+**/target/
